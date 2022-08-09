@@ -1,15 +1,13 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
-import moment from 'moment';
-
-const formatDate = date => moment(date).format('DD MMM YYYY');
+import Avatar from './Avatar';
 
 const UserInfo = props => {
   return (
-    <>
-      <div className="comment__text">{props.text}</div>
-      <div className="comment__date">{formatDate(props.date)}</div>
-    </>
+    <div className="user-info">
+      <Avatar avatarUrl={props.author.avatarUrl} name={props.author.name} />
+      <div className="user-info__name">{props.author.name}</div>
+    </div>
   );
 };
 
