@@ -6,7 +6,10 @@ import UserInfo from './UserInfo';
 function Comment(props) {
   return (
     <div className="comment">
-      <Avatar author={props.author} />
+      <div className="user-info">
+        <Avatar author={props.author} />
+        <div className="user-info__name">{props.author.name}</div>
+      </div>
       <UserInfo author={props.author} />
     </div>
   );
