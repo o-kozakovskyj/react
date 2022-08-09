@@ -4,9 +4,12 @@ import './index.scss';
 import Comment from './Comment';
 
 const rootElem = document.querySelector('#root');
-const author = {
+const UserInfo = {
   name: 'Tom',
   avatarUrl: 'https://github.com/github.png?size=460',
 };
 
-ReactDOM.render(<Comment user={author} text="Good job!" date={new Date('2022-01-01')} />, rootElem);
+ReactDOM.render(
+  <Comment author={UserInfo} text="Good job!" date={new Date('2022-01-01')} />,
+  rootElem,
+);
