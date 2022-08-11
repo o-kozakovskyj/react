@@ -4,15 +4,15 @@ class Toggler extends Component {
   constructor() {
     super();
     this.state = {
-      value: 'on',
+      value: 'Off',
     };
   }
 
   switcher = () => {
-    if (this.state.value === 'off') {
-      this.setState({ value: 'on' });
+    if (this.state.value === 'Off') {
+      this.setState({ value: 'On' });
     } else {
-      this.setState({ value: 'off' });
+      this.setState({ value: 'Off' });
     }
   };
 
