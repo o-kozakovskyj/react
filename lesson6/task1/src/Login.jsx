@@ -1,21 +1,11 @@
-import React, { Component } from 'react';
+/* eslint-disable arrow-body-style */
+import React from 'react';
 
-class Login extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     isLoggedin: true,
-  //   };
-  // }
-
-  onLogin = () => {
-    this.setState({
-      isLoggedin: true,
-    });
-  };
-}
-<button className="btn login" onClick={this.onLogin}>
-  Login
-</button>;
-
+const onLogin = props => {
+  // eslint-disable-next-line no-param-reassign
+  props.isLoggedin = true;
+};
+const Login = props => {
+  return <button className="btn logout">Login</button>;
+};
 export default Login;

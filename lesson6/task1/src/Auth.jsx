@@ -2,15 +2,17 @@
 import React, { Component } from 'react';
 import Greeting from './Greeting';
 // import Login from './Login';
-// import Logout from './Logout';
+import Logout from './Logout';
 
 class Auth extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      isLoggedin: false,
+     
+      isLoggedin: props.isLoggedin,
     };
-  }
+    console.log(this.isLoggedin)
+  };
 
   handleLogin=()=> {
     this.setState({
@@ -28,13 +30,11 @@ class Auth extends Component {
     return (
       <div className="panel">
         <Greeting isLoggedin={this.state.isLoggedin} />
-        <div>{this.state.isLoggedin ? (
-      <button className="btn logout" onClick={ this.handleLogout}>
-        Logout
-      </button>
+        {this.state.isLoggedin ? (
+      <Logout isLoggedin={this.state.isLoggedin} />
     ) : (
       <button className="btn login" onClick={this.handleLogin}>Login</button>
-    )}</div>
+    )}
       </div>
     );
   }
