@@ -4,7 +4,7 @@ class Login extends Component {
   constructor({ updateStatus }) {
     super({ updateStatus });
     this.state = {
-      isLoggedin: true,
+      isLoggedIn: true,
     };
   }
 
@@ -14,7 +14,7 @@ class Login extends Component {
 
   render() {
     return (
-      <button className="login btn" onClick={() => this.onLogin(this.state.isLoggedin)}>
+      <button className="login btn" onClick={() => this.onLogin(this.state.isLoggedIn)}>
         Login
       </button>
     );

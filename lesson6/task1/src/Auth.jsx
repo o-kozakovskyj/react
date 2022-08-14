@@ -5,18 +5,18 @@ import Logout from './Logout';
 
 class Auth extends Component {
   state = {
-    isLoggedin: false,
+    isLoggedIn: false,
   };
 
   updateStatus = value => {
     this.setState({
-      isLoggedin: value,
+      isLoggedIn: value,
     });
   };
 
   render() {
     let button;
-    if (this.state.isLoggedin === true) {
+    if (this.state.isLoggedIn === true) {
       button = <Logout updateStatus={this.updateStatus} />;
     } else {
       button = <Login updateStatus={this.updateStatus} />;
@@ -24,7 +24,7 @@ class Auth extends Component {
 
     return (
       <div className="panel">
-        <Greeting isLoggedin={this.state.isLoggedin} />
+        <Greeting isLoggedin={this.state.isLoggedIn} />
         {button}
       </div>
     );

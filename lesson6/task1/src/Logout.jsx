@@ -4,7 +4,7 @@ class Logout extends Component {
   constructor({ updateStatus }) {
     super({ updateStatus });
     this.state = {
-      isLoggedin: false,
+      isLoggedIn: false,
     };
   }
 
@@ -14,7 +14,7 @@ class Logout extends Component {
 
   render() {
     return (
-      <button className="logout btn" onClick={() => this.onLogout(this.state.isLoggedin)}>
+      <button className="logout btn" onClick={() => this.onLogout(this.state.isLoggedIn)}>
         Logout
       </button>
     );
