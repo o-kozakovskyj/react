@@ -8,18 +8,24 @@ class Auth extends Component {
     isLoggedIn: false,
   };
 
-  updateStatus = value => {
+  onLogout = () => {
     this.setState({
-      isLoggedIn: value,
+      isLoggedIn: false,
+    });
+  };
+
+  onLogin = () => {
+    this.setState({
+      isLoggedIn: true,
     });
   };
 
   render() {
     let button;
     if (this.state.isLoggedIn === true) {
-      button = <Logout updateStatus={this.updateStatus} />;
+      button = <Logout onLogout={this.onLogout} />;
     } else {
-      button = <Login updateStatus={this.updateStatus} />;
+      button = <Login onLogin={this.onLogin} />;
     }
 
     return (

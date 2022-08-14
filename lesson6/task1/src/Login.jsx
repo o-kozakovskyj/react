@@ -8,13 +8,9 @@ class Login extends Component {
     };
   }
 
-  onLogin(value) {
-    this.props.updateStatus(value);
-  }
-
   render() {
     return (
-      <button className="login btn" onClick={() => this.onLogin(this.state.isLoggedIn)}>
+      <button className="login btn" onClick={() => this.props.onLogin()}>
         Login
       </button>
     );

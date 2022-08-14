@@ -8,13 +8,9 @@ class Logout extends Component {
     };
   }
 
-  onLogout(value) {
-    this.props.updateStatus(value);
-  }
-
   render() {
     return (
-      <button className="logout btn" onClick={() => this.onLogout(this.state.isLoggedIn)}>
+      <button className="logout btn" onClick={() => this.props.onLogout()}>
         Logout
       </button>
     );
