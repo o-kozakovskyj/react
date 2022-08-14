@@ -1,40 +1,31 @@
-/* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 import Greeting from './Greeting';
-// import Login from './Login';
+import Login from './Login';
 import Logout from './Logout';
 
 class Auth extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-     
-      isLoggedin: props.isLoggedin,
-    };
-    console.log(this.isLoggedin)
+  state = {
+    isLoggedin: false,
   };
 
-  handleLogin=()=> {
+  updateStatus = value => {
     this.setState({
-      isLoggedin: true,
+      isLoggedin: value,
     });
-  }
-
-  handleLogout=() =>{
-    this.setState({
-      isLoggedin: false,
-    });
-  }
+  };
 
   render() {
+    let button;
+    if (this.state.isLoggedin === true) {
+      button = <Logout updateStatus={this.updateStatus} />;
+    } else {
+      button = <Login updateStatus={this.updateStatus} />;
+    }
+
     return (
       <div className="panel">
         <Greeting isLoggedin={this.state.isLoggedin} />
-        {this.state.isLoggedin ? (
-      <Logout isLoggedin={this.state.isLoggedin} />
-    ) : (
-      <button className="btn login" onClick={this.handleLogin}>Login</button>
-    )}
+        {button}
       </div>
     );
   }

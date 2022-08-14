@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-class Login extends Component {
+class Logout extends Component {
   state = {
-    isLogin: true,
+    isLogin: false,
   };
 
   render() {
     return (
       <button className="login btn" onClick={() => this.props.updateStatus(this.state.isLogin)}>
-        Login
+        Logout
       </button>
     );
   }
 }
-export default Login;
+export default Logout;
