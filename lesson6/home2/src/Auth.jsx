@@ -5,28 +5,37 @@ import Spinner from './Spinner';
 
 class Auth extends Component {
   state = {
-    isLogin: false,
+    isLoggedIn: false,
+    sp: <Spinner />,
+    counter: 0,
   };
 
-  updateStatus = value => {
+  onLogout = () => {
     this.setState({
-      isLogin: value,
+      isLoggedIn: false,
+    });
+  };
+
+  onLogin = () => {
+    this.setState({
+      isLoggedIn: true,
     });
   };
 
   render() {
-    if (this.state.isLogin === false) {
-      return <Login updateStatus={this.updateStatus} />;
-    }
-    if (this.state.isLogin === true) {
-      return (
+    let button;
+    if (this.state.isLoggedIn === true) {
+      button = (
         <>
           <Spinner />
-          <Logout updateStatus={this.updateStatus} />
+          <Logout onLogout={this.onLogout} />
         </>
       );
+    } else {
+      button = <Login onLogin={this.onLogin} />;
     }
-    return null;
+
+    return <>{button}</>;
   }
 }
 export default Auth;

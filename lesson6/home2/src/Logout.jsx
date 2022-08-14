@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 
 class Logout extends Component {
-  state = {
-    isLogin: false,
-  };
+  constructor({ updateStatus }) {
+    super({ updateStatus });
+    this.state = {
+      isLoggedIn: false,
+    };
+  }
 
   render() {
     return (
-      <button className="login btn" onClick={() => this.props.updateStatus(this.state.isLogin)}>
+      <button className="logout btn" onClick={() => this.props.onLogout()}>
         Logout
       </button>
     );
