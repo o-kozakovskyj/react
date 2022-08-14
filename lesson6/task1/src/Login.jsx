@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 
 class Login extends Component {
-  state = {
-    isLogin: true,
-  };
+  constructor({ updateStatus }) {
+    super({ updateStatus });
+    this.state = {
+      isLoggedin: true,
+    };
+  }
+
+  onLogin(value) {
+    this.props.updateStatus(value);
+  }
 
   render() {
     return (
-      <button className="login btn" onClick={() => this.props.updateStatus(this.state.isLogin)}>
+      <button className="login btn" onClick={() => this.onLogin(this.state.isLoggedin)}>
         Login
       </button>
     );

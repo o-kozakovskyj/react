@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 
 class Logout extends Component {
-  constructor(props) {
-    super(props);
+  constructor({ updateStatus }) {
+    super({ updateStatus });
     this.state = {
       isLoggedin: false,
     };
   }
 
+  onLogout(value) {
+    this.props.updateStatus(value);
+  }
+
   render() {
     return (
-      <button className="btn logout" onClick={() => this.props.updateStatus(this.state.isLoggedin)}>
+      <button className="logout btn" onClick={() => this.onLogout(this.state.isLoggedin)}>
         Logout
       </button>
     );
