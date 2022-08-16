@@ -21,6 +21,7 @@ class Demo extends Component {
   update = () => {
     this.setState({
       number: Math.round(Math.random() * 100),
+      number1: Math.round(Math.random() * 100),
     });
   };
 
@@ -38,7 +39,7 @@ class Demo extends Component {
             Update
           </button>
         </div>
-        {this.state.visible && <Life number={this.state.number} />}
+        <Life number={this.state.number} />
       </div>
     );
   }

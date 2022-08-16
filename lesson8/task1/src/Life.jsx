@@ -7,12 +7,11 @@ class Life extends Component {
   }
 
   componentDidMount() {
-    console.log('componentDidMount: API, subscriptions');
+    console.log('componentDidMount: API calls, subscriptions');
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log(nextProps, nextState);
-    console.log('shouldComponentUpdate(prevProps, prevState): decide to render or not render');
+  shouldComponentUpdate() {
+    console.log('shouldComponentUpdate(nextProps, nextState): decide to render or not to render');
     return true;
   }
 
@@ -21,7 +20,7 @@ class Life extends Component {
   }
 
   componentWillUnmount() {
-    console.log('componentWillUnmoun(): cleanup before DOM related to component will be removed');
+    console.log('componentWillUnmount(): cleanup before DOM related to component will be removed');
   }
 
   render() {
