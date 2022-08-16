@@ -13,31 +13,15 @@ body {
   align-items: center;
 }
 
-.users {
-  list-style-type: none;
-  padding: 0;
-}
-
-.user {
-  margin: 8px;
-  width: 150px;
-  display: flex;
-
-  &__age {
-    font-weight: 700;
-    opacity: 0.5;
-    margin-left: auto;
-  }
-}
-
 .btn {
   height: 32px;
   color: #fff;
   border-radius: 8px;
-  width: 64px;
+  width: 84px;
   outline: none;
   border: none;
   text-transform: uppercase;
+  margin-right: 20px;
   padding: 8px;
   cursor: pointer;
   background-color: green;

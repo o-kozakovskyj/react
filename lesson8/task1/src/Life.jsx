@@ -10,14 +10,14 @@ class Life extends Component {
     console.log('componentDidMount: API, subscriptions');
   }
 
-  shouldComponentUpdate() {
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log(nextProps, nextState);
     console.log('shouldComponentUpdate(prevProps, prevState): decide to render or not render');
     return true;
   }
 
   componentDidUpdate() {
     console.log('componentDidUpdate(prevProps, prevState): some updates based on new props');
-    return true;
   }
 
   componentWillUnmount() {
@@ -26,7 +26,7 @@ class Life extends Component {
 
   render() {
     console.log('return React element to build DOM');
-    return <button>Hello!</button>;
+    return <div>{this.props.number}</div>;
   }
 }
 export default Life;
