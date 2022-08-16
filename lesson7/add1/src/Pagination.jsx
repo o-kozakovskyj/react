@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Pagination extends Component {
   render() {
     const isPrevPageAvailable = this.props.currentPage === 1 ? '' : '←';
-    const isNextPageAvailable = this.props.currentPage === this.props.totalItems ? '' : '→';
+    const isNextPageAvailable = this.props.currentPage >= this.props.totalItems ? '' : '→';
 
     return (
       <div className="pagination">

@@ -4,6 +4,7 @@ import UsersList from './UsersList';
 import './index.scss';
 
 const rootElem = document.querySelector('#root');
+// const users = [];
 const users = [
   { name: 'Bob', age: 21, id: 'id-1' },
   { name: 'Tom', age: 20, id: 'id-2' },
