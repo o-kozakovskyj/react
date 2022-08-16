@@ -12,22 +12,22 @@ class Pagination extends Component {
       disabledPrev = 'disabled';
     } else {
       isPrevPageAvailable = '←';
-      disabledPrev = null;
+      disabledPrev = '';
     }
     if (this.props.currentPage === this.props.totalItems) {
       isNextPageAvailable = '';
       disabledNext = 'disabled';
     } else {
       isNextPageAvailable = '→';
-      disabledNext = null;
+      disabledNext = '';
     }
     return (
       <div className="pagination">
-        <button className="btn" disabled={disabledPrev} onClick={this.props.goPrev}>
+        <button type="button" className="btn" disabled={disabledPrev} onClick={this.props.goPrev}>
           {isPrevPageAvailable}
         </button>
         <span className="pagination__page">{this.props.currentPage}</span>
-        <button className="btn" disabled={disabledNext} onClick={this.props.goNext}>
+        <button type="button" className="btn" disabled={disabledNext} onClick={this.props.goNext}>
           {isNextPageAvailable}
         </button>
       </div>
