@@ -12,14 +12,14 @@ class Pagination extends Component {
       disabledPrev = 'disabled';
     } else {
       isPrevPageAvailable = '←';
-      disabledPrev = '';
+      disabledPrev = null;
     }
     if (this.props.currentPage === this.props.totalItems) {
       isNextPageAvailable = '';
       disabledNext = 'disabled';
     } else {
       isNextPageAvailable = '→';
-      disabledNext = '';
+      disabledNext = null;
     }
     return (
       <div className="pagination">
