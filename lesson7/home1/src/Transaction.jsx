@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import Moment from 'react-moment';
+import moment from 'moment';
 
 class Transaction extends Component {
   render() {
     const formatter = new Intl.NumberFormat('en-GB');
     return (
       <li className="transaction">
-        <span className="transaction__date">
-          {<Moment format="DD MMM">{this.props.time}</Moment>}
-        </span>
-        <span className="transaction__time">
-          {<Moment format="HH:mm">{this.props.time}</Moment>}
-        </span>
+        <span className="transaction__date">{moment(this.props.time).format('DD MMM')}</span>
+        <span className="transaction__time">{moment(this.props.time).format('HH:mm')}</span>
         <span className="transaction__assets">
           {this.props.from} → {this.props.to}
         </span>
