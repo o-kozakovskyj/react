@@ -22,7 +22,7 @@ class Dimensions extends Component {
       width,
       height,
     });
-    document.title = `${width}X${height}`;
+    document.title = `${width} x ${height}`;
   };
 
   componentWillUnmount() {
