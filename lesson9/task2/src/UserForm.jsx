@@ -4,7 +4,7 @@ class UserForm extends Component {
   state = {
     name: '',
     student: '',
-    occupation: '',
+    occupation: 'london',
     about: '',
   };
 
