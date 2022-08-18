@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import UserForm from './UserFofm';
 
 class App extends Component {
-  createUser = objUser => {
-    console.log(objUser);
+  createUser = user => {
+    console.log(user);
   };
 
   render() {
