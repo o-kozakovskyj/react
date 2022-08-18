@@ -5,7 +5,7 @@ import './index.scss';
 
 const rootElem = document.querySelector('#root');
 const users = [];
-// const users1 = [
+// const users = [
 //   { name: 'Bob', age: 21, id: 'id-1' },
 //   { name: 'Tom', age: 20, id: 'id-2' },
 //   { name: 'Pups', age: 2, id: 'id-3' },

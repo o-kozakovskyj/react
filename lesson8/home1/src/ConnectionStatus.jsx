@@ -1,38 +1,31 @@
-/* eslint-disable camelcase */
 import React, { Component } from 'react';
 
 class ConnectionStatus extends Component {
   state = {
-    status: 'online',
-    classStyle: 'status',
+    status: true,
   };
 
   componentDidMount() {
-    window.addEventListener('online', this.isOnline);
-    window.addEventListener('offline', this.isOffline);
+    window.addEventListener('online', this.handleStatus);
+    window.addEventListener('offline', this.handleStatus);
   }
 
-  isOffline = () => {
-    this.state({
-      status: 'offline',
-      classStyle: 'status status_offline',
-    });
-  };
-
-  isOnline = () => {
-    this.state({
-      status: 'online',
-      classStyle: 'online',
+  handleStatus = e => {
+    const status = e.target.navigator.onLine;
+    this.setState({
+      status,
     });
   };
 
   componentWillUnmount() {
-    window.removeEventListener('online', this.isOnline);
-    window.removeEventListener('offline', this.isOffline);
+    window.removeEventListener('online', this.handleStatus);
+    window.removeEventListener('offline', this.handleStatus);
   }
 
   render() {
-    return <div className={this.state.classStyle}>{this.state.status}</div>;
+    const classStyle = this.state.status === true ? 'status' : 'status status_offline';
+    const statusText = this.state.status === true ? 'online' : 'offline';
+    return <div className={classStyle}>{statusText}</div>;
   }
 }
 export default ConnectionStatus;
