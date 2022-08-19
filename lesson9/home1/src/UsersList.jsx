@@ -15,16 +15,13 @@ class UsersList extends Component {
   };
 
   render() {
+    const usersOnFind = [...this.props.users]
+      .filter(({ name }) => name.toLowerCase().includes(this.state.value.toLowerCase()))
+      .map(user => <User key={user.id} {...user} />);
     return (
       <div>
-        <Filter onChange={this.onChange} />
-        <ul className="users">
-          {[...this.props.users]
-            .filter(({ name }) => name.toLowerCase().includes(this.state.value.toLowerCase()))
-            .map(user => (
-              <User key={user.id} {...user} />
-            ))}
-        </ul>
+        <Filter onChange={this.onChange} count={usersOnFind.length} />
+        <ul className="users">{usersOnFind}</ul>
       </div>
     );
   }
