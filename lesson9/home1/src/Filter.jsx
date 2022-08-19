@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 class Filter extends Component {
-  // handleValue = e => {
-  //   this.props.onChange(e.target.value);
-  // };
+  onChange = e => {
+    this.props.onChange(e.target.value);
+  };
 
   render() {
     return (
@@ -13,7 +13,7 @@ class Filter extends Component {
           type="text"
           className="filter__input"
           value={this.props.filterText}
-          onChange={e => this.props.onChange(e.target.value)}
+          onChange={this.onChange}
         />
       </div>
     );
