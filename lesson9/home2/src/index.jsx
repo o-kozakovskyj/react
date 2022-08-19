@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Auth from './Auth';
+import Game from './Game';
 import './index.scss';
 
 const rootElem = document.querySelector('#root');
 
-ReactDOM.render(<Auth />, rootElem);
+ReactDOM.render(<Game />, rootElem);

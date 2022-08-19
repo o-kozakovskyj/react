@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Login extends Component {
+class Game extends Component {
   constructor({ updateStatus }) {
     super({ updateStatus });
     this.state = {
@@ -16,4 +16,4 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+export default Game;

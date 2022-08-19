@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Login from './Login';
-import Logout from './Logout';
+import Login from './Game';
+import Logout from './Square';
 import Spinner from './Spinner';
 
-class Auth extends Component {
+class Board extends Component {
   state = {
     isLoggedIn: false,
     sp: <Spinner />,
@@ -38,4 +38,4 @@ class Auth extends Component {
     return <>{button}</>;
   }
 }
-export default Auth;
+export default Board;
