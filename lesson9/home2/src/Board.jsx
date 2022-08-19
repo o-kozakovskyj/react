@@ -1,41 +1,32 @@
 import React, { Component } from 'react';
-import Login from './Game';
-import Logout from './Square';
-import Spinner from './Spinner';
+import Square from './Square';
 
 class Board extends Component {
-  state = {
-    isLoggedIn: false,
-    sp: <Spinner />,
-    counter: 0,
-  };
-
-  onLogout = () => {
-    this.setState({
-      isLoggedIn: false,
-    });
-  };
-
-  onLogin = () => {
-    this.setState({
-      isLoggedIn: true,
-    });
-  };
+  renderSquare(i) {
+    return <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />;
+  }
 
   render() {
-    let button;
-    if (this.state.isLoggedIn === true) {
-      button = (
-        <>
-          <Spinner />
-          <Logout onLogout={this.onLogout} />
-        </>
-      );
-    } else {
-      button = <Login onLogin={this.onLogin} />;
-    }
-
-    return <>{button}</>;
+    return (
+      <div>
+        <div className="board-row">
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+        </div>
+      </div>
+    );
   }
 }
+
 export default Board;
