@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Filter extends Component {
-  onInput = e => {
+  onChange = e => {
     this.props.onChange(e.target.value);
   };
 
@@ -13,7 +13,7 @@ class Filter extends Component {
           type="text"
           className="filter__input"
           value={this.props.filterText}
-          onChange={this.onInput}
+          onChange={this.props.onChange}
         />
       </div>
     );
