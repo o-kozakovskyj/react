@@ -6,6 +6,7 @@ class UsersList extends Component {
   state = {
     value: '',
     listLength: this.props.users.length,
+    filterText: 'fff',
   };
 
   onChange = filterText => {
@@ -20,7 +21,7 @@ class UsersList extends Component {
       .map(user => <User key={user.id} {...user} />);
     return (
       <div>
-        <Filter onChange={this.onChange} count={usersOnFind.length} />
+        <Filter onChange={this.onChange} count={usersOnFind.length} filterText={this.state.value} />
         <ul className="users">{usersOnFind}</ul>
       </div>
     );

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Filter extends Component {
   state = {
-    value: '',
+    value: this.props.filterText,
   };
 
   handleValue = e => {
