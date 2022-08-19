@@ -6,12 +6,11 @@ class UsersList extends Component {
   state = {
     value: '',
     listLength: this.props.users.length,
-    filterText: 'fff',
   };
 
-  onChange = filterText => {
+  onChange = value => {
     this.setState({
-      value: filterText,
+      value,
     });
   };
 
