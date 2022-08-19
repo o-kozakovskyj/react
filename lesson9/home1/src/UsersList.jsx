@@ -5,7 +5,6 @@ import Filter from './Filter';
 class UsersList extends Component {
   state = {
     value: '',
-    listLength: this.props.users.length,
   };
 
   onChange = value => {
@@ -15,13 +14,13 @@ class UsersList extends Component {
   };
 
   render() {
-    const usersOnFind = [...this.props.users]
+    const usersFound = [...this.props.users]
       .filter(({ name }) => name.toLowerCase().includes(this.state.value.toLowerCase()))
       .map(user => <User key={user.id} {...user} />);
     return (
       <div>
-        <Filter onChange={this.onChange} count={usersOnFind.length} filterText={this.state.value} />
-        <ul className="users">{usersOnFind}</ul>
+        <Filter onChange={this.onChange} count={usersFound.length} filterText={this.state.value} />
+        <ul className="users">{usersFound}</ul>
       </div>
     );
   }
