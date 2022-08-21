@@ -10,9 +10,9 @@ class Calculator extends Component {
     },
   };
 
-  toCelsius = fahrenheit => Math.round(((fahrenheit - 32) * 5) / 9);
+  toCelsius = fahrenheit => ((fahrenheit - 32) * 5) / 9;
 
-  toFahrenheit = celsius => Math.round((celsius * 9) / 5 + 32);
+  toFahrenheit = celsius => (celsius * 9) / 5 + 32;
 
   tryConvert = (temperature, convert) => {
     const input = parseFloat(temperature);
