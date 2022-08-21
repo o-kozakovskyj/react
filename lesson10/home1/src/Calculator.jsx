@@ -34,12 +34,14 @@ class Calculator extends Component {
         },
       });
     }
-    this.setState({
-      temperature: {
-        fahrengeit: this.tryConvert(value, this.toFahrenheit),
-        celsius: value,
-      },
-    });
+    if (name === 'celsius') {
+      this.setState({
+        temperature: {
+          fahrengeit: this.tryConvert(value, this.toFahrenheit),
+          celsius: value,
+        },
+      });
+    }
   };
 
   render() {
