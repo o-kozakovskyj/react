@@ -8,7 +8,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.fetchUserData(this.props.userName);
+    this.fetchUserData(this.props.userId);
   }
 
   fetchUserData = name => {
