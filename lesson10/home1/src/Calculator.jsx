@@ -10,9 +10,19 @@ class Calculator extends Component {
     },
   };
 
-  toCelsius = fahrenheit => Math.round((((fahrenheit - 32) * 5) / 9) * 1000) / 1000;
+  toCelsius = fahrenheit => Math.round(((fahrenheit - 32) * 5) / 9);
 
-  toFahrenheit = celsius => Math.round(((celsius * 9) / 5 + 32) * 1000) / 1000;
+  toFahrenheit = celsius => Math.round((celsius * 9) / 5 + 32);
+
+  tryConvert = (temperature, convert) => {
+    const input = parseFloat(temperature);
+    if (Number.isNaN(input)) {
+      return '';
+    }
+    const output = convert(input);
+    const rounded = Math.round(output * 1000) / 1000;
+    return rounded.toString();
+  };
 
   onHandleTemp = e => {
     const { name, value } = e.target;
@@ -20,13 +30,13 @@ class Calculator extends Component {
       this.setState({
         temperature: {
           fahrengeit: value,
-          celsius: this.toCelsius(value),
+          celsius: this.tryConvert(value, this.toCelsius),
         },
       });
     }
     this.setState({
       temperature: {
-        fahrengeit: this.toFahrenheit(value),
+        fahrengeit: this.tryConvert(value, this.toFahrenheit),
         celsius: value,
       },
     });
