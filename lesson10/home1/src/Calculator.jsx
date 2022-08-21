@@ -1,14 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import BoilingVerdict from './BoilingVerdict';
 import TemperatureInput from './TemperatureInput';
 
-class Calculator extends Component {
-  state = {
-    temperature: {
-      fahrengeit: null,
-      celsius: null,
-    },
-  };
+class Calculator extends React.Component {
+  state = { temperature: '', scale: 'c' };
 
   toCelsius = fahrenheit => ((fahrenheit - 32) * 5) / 9;
 
@@ -24,33 +19,37 @@ class Calculator extends Component {
     return rounded.toString();
   };
 
-  onHandleTemp = e => {
-    const { name, value } = e.target;
-    if (name === 'fahrengeit') {
-      this.setState({
-        temperature: {
-          fahrengeit: value,
-          celsius: this.tryConvert(value, this.toCelsius),
-        },
-      });
-    }
-    if (name === 'celsius') {
-      this.setState({
-        temperature: {
-          fahrengeit: this.tryConvert(value, this.toFahrenheit),
-          celsius: value,
-        },
-      });
-    }
+  handleCelsiusChange = temperature => {
+    this.setState({ scale: 'c', temperature });
+  };
+
+  handleFahrenheitChange = temperature => {
+    this.setState({ scale: 'f', temperature });
   };
 
   render() {
+    const { scale } = this.state;
+    const { temperature } = this.state;
+    const celsius = scale === 'f' ? this.tryConvert(temperature, this.toCelsius) : temperature;
+    const fahrenheit =
+      scale === 'c' ? this.tryConvert(temperature, this.toFahrenheit) : temperature;
+
     return (
       <div>
-        <TemperatureInput temperature={this.state.temperature} onHandleTemp={this.onHandleTemp} />
-        <BoilingVerdict temperature={this.state.temperature} />
+        <TemperatureInput
+          scale="c"
+          temperature={celsius}
+          onTemperatureChange={this.handleCelsiusChange}
+        />
+        <TemperatureInput
+          scale="f"
+          temperature={fahrenheit}
+          onTemperatureChange={this.handleFahrenheitChange}
+        />
+        <BoilingVerdict celsius={parseFloat(celsius)} />
       </div>
     );
   }
 }
+
 export default Calculator;
