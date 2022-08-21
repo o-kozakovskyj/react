@@ -10,9 +10,9 @@ class Calculator extends Component {
     },
   };
 
-  toCelsius = fahrenheit => Math.round((((fahrenheit - 32) * 5) / 9) * 100) / 100;
+  toCelsius = fahrenheit => Math.round((((fahrenheit - 32) * 5) / 9) * 1000) / 1000;
 
-  toFahrenheit = celsius => Math.round(((celsius * 9) / 5 + 32) * 100) / 100;
+  toFahrenheit = celsius => Math.round(((celsius * 9) / 5 + 32) * 1000) / 1000;
 
   onHandleTemp = e => {
     const { name, value } = e.target;
