@@ -1,35 +1,33 @@
 import React, { Component } from 'react';
-import ShoppingCart from './ShoppingCart';
-import Profile from './Profile';
+import Dialog from './Dialog';
 
 class App extends Component {
   state = {
-    userData: {
-      firstName: 'John ',
-      lastName: 'Doe',
-    },
+    isOpen: false,
   };
 
-  handleChange = e => {
-    const { name, value } = e.target;
+  showDialog = () => {
     this.setState({
-      userData: {
-        ...this.state.userData,
-        [name]: value,
-      },
+      isOpen: true,
+    });
+  };
+
+  hideDialog = () => {
+    this.setState({
+      isOpen: false,
     });
   };
 
   render() {
+    const elem = <p>Use immutable array methods to work with data. It will help to avoid bugs</p>;
     return (
-      <div className="page">
-        <h1 className="title">
-          {`Hello, ${this.state.userData.firstName} ${this.state.userData.lastName}`}
-        </h1>
-        <main className="content">
-          <ShoppingCart name={this.state.userData.firstName} />
-          <Profile userData={this.state.userData} handleChange={this.handleChange} />
-        </main>
+      <div className="app">
+        <button className="btn" onClick={this.showDialog}>
+          Show dialog
+        </button>
+        <Dialog isOpen={this.state.isOpen} title={'Recommendation'} onChange={this.hideDialog}>
+          {elem}
+        </Dialog>
       </div>
     );
   }
