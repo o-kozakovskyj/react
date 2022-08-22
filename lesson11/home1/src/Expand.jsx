@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Expand = ({ children, display, openContent, title }) => {
   const content = display === true ? <div className="expand__content">{children}</div> : null;
@@ -16,4 +17,14 @@ const Expand = ({ children, display, openContent, title }) => {
   );
 };
 
+Expand.propTypes = {
+  display: PropTypes.bool,
+  children: PropTypes.elem,
+  title: PropTypes.string,
+  openContent: PropTypes.func.isRequired,
+};
+Expand.defaultProps = {
+  title: '',
+  display: false,
+};
 export default Expand;
