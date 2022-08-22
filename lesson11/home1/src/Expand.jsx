@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Expand = ({ children, display, openContent, title }) => {
-  const content = display === true ? <div className="expand__content">{children}</div> : null;
+  const content = display === true ? children : null;
   const arrow = display === true ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
   return (
     <div className="expand border">
@@ -12,7 +12,7 @@ const Expand = ({ children, display, openContent, title }) => {
           <i className={arrow}></i>
         </button>
       </div>
-      {content}
+      <div className="expand__content">{content}</div>
     </div>
   );
 };
