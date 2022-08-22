@@ -25,7 +25,7 @@ class App extends Component {
         <button className="btn" onClick={this.showDialog}>
           Show dialog
         </button>
-        <Dialog isOpen={this.state.isOpen} title={'Recommendation'} onChange={this.hideDialog}>
+        <Dialog isOpen={this.state.isOpen} title={'Recommendation'} onClose={this.hideDialog}>
           {elem}
         </Dialog>
       </div>

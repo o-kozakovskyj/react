@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Dialog = ({ children, isOpen, title, onChange }) => {
+const Dialog = ({ children, isOpen, title, onClose }) => {
   if (!isOpen) {
     return null;
   }
@@ -9,7 +9,7 @@ const Dialog = ({ children, isOpen, title, onChange }) => {
     <div className="dialog">
       <div className="dialog__heading">
         <h4 className="dialog__title">{title}</h4>
-        <button className="dialog__close-btn" onClick={onChange}>
+        <button className="dialog__close-btn" onClick={onClose}>
           +
         </button>
       </div>
