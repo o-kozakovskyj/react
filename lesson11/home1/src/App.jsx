@@ -21,7 +21,7 @@ class App extends React.Component {
     );
     return (
       <div className="app">
-        <Expand title={'Some title'} display={this.state.display} openContent={this.changeContent}>
+        <Expand display={this.state.display} openContent={this.changeContent}>
           {elem}
         </Expand>
       </div>
