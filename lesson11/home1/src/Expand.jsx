@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const Expand = ({ children, display, openContent, title }) => {
-  const content = display === true ? <div className="expand__content">{children}</div> : null;
-  const arrow = display === true ? 'up' : 'down';
-  return (
-    <div className="expand border">
-      <div className="expand__header">
-        <span className="expand__title">{title}</span>
-        <button className="expand__toggle-btn" onClick={openContent}>
-          <i className={`fas fa-chevron-${arrow}`}></i>
-        </button>
+class Expand extends Component {
+  state = {
+    display: false,
+  };
+
+  changeContent = () => {
+    this.setState({
+      display: !this.state.display,
+    });
+  };
+
+  render() {
+    const content =
+      this.state.display === true ? (
+        <div className="expand__content">{this.props.children}</div>
+      ) : null;
+    const arrow = this.state.display === true ? 'up' : 'down';
+    return (
+      <div className="expand border">
+        <div className="expand__header">
+          <span className="expand__title">{this.props.title}</span>
+          <button className="expand__toggle-btn" onClick={this.changeContent}>
+            <i className={`fas fa-chevron-${arrow}`}></i>
+          </button>
+        </div>
+        {content}
       </div>
-      {content}
-    </div>
-  );
-};
+    );
+  }
+}
 
 Expand.propTypes = {
   display: PropTypes.bool,

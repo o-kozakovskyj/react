@@ -2,16 +2,6 @@ import React from 'react';
 import Expand from './Expand';
 
 class App extends React.Component {
-  state = {
-    display: false,
-  };
-
-  changeContent = () => {
-    this.setState({
-      display: !this.state.display,
-    });
-  };
-
   render() {
     const elem = (
       <p>
@@ -21,9 +11,7 @@ class App extends React.Component {
     );
     return (
       <div className="app">
-        <Expand display={this.state.display} openContent={this.changeContent} title={'Some title'}>
-          {elem}
-        </Expand>
+        <Expand title={'Some title'}>{elem}</Expand>
       </div>
     );
   }
