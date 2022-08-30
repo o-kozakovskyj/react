@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-class PageNotFound extends Component {
-  render() {
-    return (
-      <div className="page__content">
-        <h1>404 😢</h1>
-        <Link to="/">Go home</Link>
-      </div>
-    );
-  }
+function PageNotFound() {
+  return (
+    <div className="page__content">
+      <h1>404 😢</h1>
+      <Link to="/">Go home</Link>
+    </div>
+  );
 }
 
 export default PageNotFound;
