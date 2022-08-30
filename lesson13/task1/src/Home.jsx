@@ -6,9 +6,8 @@ class Home extends PureComponent {
     return (
       <div className="page__content">
         <h1>Home</h1>
-        <Link to="/products">To Products</Link>
         <p>We are here 🗺</p>
-        <a href="/">Go home</a>
+        <Link to="/products">To products</Link>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import Products from './Products';
 import Contacts from './Contacts';
@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="page">
-        <Router>
+        <BrowserRouter>
           <Switch>
             <Route exact path="/">
               <Home />
@@ -24,7 +24,7 @@ class App extends Component {
               <PageNotFound />
             </Route>
           </Switch>
-        </Router>
+        </BrowserRouter>
       </div>
     );
   }
