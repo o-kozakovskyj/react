@@ -18,7 +18,7 @@ const Products = ({ match }) => (
         <Product />
       </Route>
       <Route exact path={match.url}>
-        <span> Select a product please</span>
+        <span>Select a product please</span>
       </Route>
     </Switch>
   </div>
