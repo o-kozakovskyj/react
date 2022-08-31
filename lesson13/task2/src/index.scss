@@ -6,63 +6,26 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#root {
+.page {
+  width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
 }
 
-.btn {
-  height: 48px;
-  color: #fff;
-  border-radius: 8px;
-  outline: none;
-  border: none;
-  text-transform: uppercase;
-  padding: 8px;
-  cursor: pointer;
-  background-color: darkgreen;
-}
+.navigation {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
 
-.dialog {
-  position: absolute;
-  top: 30vh;
-  left: 30vw;
-  width: 40vw;
-  max-height: 40vh;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  padding: 8px;
-  background-color: #fffafa;
-  align-items: flex-start;
-
-  &__heading {
-      display: flex;
-  }
-
-  &__title {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-  }
-
-  &__close-btn {
-      transform: rotate(45deg);
-      background-color: transparent;
-      border: none;
-      font-size: 32px;
-      opacity: 0.5;
-      background: #eee;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-left: auto;
-      outline: none;
-      cursor: pointer;
-
-      &:hover {
-          background: #ccc; 
-      }
+  &__item {
+    margin: 8px;
   }
 }
