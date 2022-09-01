@@ -3,7 +3,6 @@ import moment from 'moment';
 
 // eslint-disable-next-line arrow-body-style
 const Profile = props => {
-  console.log(props.userData.firstName);
   return (
     <div className="profile">
       <div className="profile__name">{`${props.userData.firstName} ${props.userData.lastName}`}</div>

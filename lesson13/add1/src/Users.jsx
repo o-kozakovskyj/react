@@ -2,7 +2,8 @@ import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import User from './User';
 
-export default function Users() {
+export default function Users({ match }) {
+  console.log(match);
   return (
     <div className="page__content">
       <h1>Users</h1>
@@ -14,7 +15,14 @@ export default function Users() {
           <Link to="/users/facebook">Facebook</Link>
         </li>
       </ul>
-      <User />
+      <Switch>
+        <Route path="/users/:userId">
+          <User />
+        </Route>
+        <Route exact path="/users">
+          <span>Select a user please</span>
+        </Route>
+      </Switch>
     </div>
   );
 }

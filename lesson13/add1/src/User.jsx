@@ -1,16 +1,16 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 export default function User() {
+  const { userId } = useParams();
+  const url = `https://api.github.com/users/${userId}`;
+
   return (
     <div className="user">
-      <img
-        alt="User Avatar"
-        src="https://avatars1.githubusercontent.com/u/9919?v=4"
-        className="user__avatar"
-      ></img>
+      <img alt="User Avatar" src={url.avatar} className="user__avatar"></img>
       <div className="user__info">
-        <span className="user__name">GitHub</span>
-        <span className="user__location">San Francisco,CA</span>
+        <span className="user__name">{userId}</span>
+        <span className="user__location">{url.location}</span>
       </div>
     </div>
   );
