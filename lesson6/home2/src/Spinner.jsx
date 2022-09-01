@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Spinner = ({ size }) => {
+export default function Spinner({ size }) {
   const spinnerStyles = {
     display: 'inline - block',
     border: `${size}px solid #ccc`,
@@ -9,5 +9,4 @@ const Spinner = ({ size }) => {
     borderRadius: '50%',
   };
   return <span className="spinner" style={spinnerStyles}></span>;
-};
-export default Spinner;
+}
