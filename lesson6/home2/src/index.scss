@@ -23,11 +23,20 @@ body {
 
 @keyframes spin {
   from {
-      transform: rotate(0deg); 
+    transform: rotate(0deg);
   }
+
   to {
-      transform: rotate(360deg); 
+    transform: rotate(360deg);
   }
+}
+
+.spinner {
+  display: inline-block;
+  border: 3px solid #ccc;
+  border-left-color: transparent;
+  animation: spin .5s infinite linear;
+  border-radius: 50%;
 }
 
 .btn {

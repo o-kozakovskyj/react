@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Spinner = () => (
-  // const spinnerStyles = {
-  //   display: 'inline - block',
-  //   border: `${size}px solid #ccc`,
-  //   borderLeftColor: 'transparent',
-  //   animation: 'spin .5s infinite linear',
-  //   borderRadius: '50%',
-  // };
-  <span className="spinner"></span>
-);
+class Spinner extends Component {
+  render() {
+    const spinnerStyles = {
+      display: 'inline - block',
+      border: `${this.props.size}px solid #ccc`,
+      borderLeftColor: 'transparent',
+      animation: 'spin .5s infinite linear',
+      borderRadius: '50%',
+    };
+    return <span className="spinner" style={spinnerStyles}></span>;
+  }
+}
 export default Spinner;
