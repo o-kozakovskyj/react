@@ -7,7 +7,7 @@ const ConnectionStatus = () => {
       setStatus(e.target.navigator.onLine);
     };
     window.addEventListener('online', handleStatus);
-    window.addEventListener('offline', handleStatus);
+    // window.addEventListener('offline', handleStatus);
     return () => {
       window.removeEventListener('online', this.handleStatus);
       // window.removeEventListener('offline', this.handleStatus);
