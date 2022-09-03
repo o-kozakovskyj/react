@@ -13,6 +13,7 @@ const User = ({ match }) => {
         }
         throw new Error();
       })
+      // eslint-disable-next-line no-shadow
       .then(userData => {
         setUserData(userData);
       });
