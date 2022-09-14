@@ -3,14 +3,11 @@ import Pagination from './Pagination';
 import User from './User';
 
 class UsersList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentPage: 1,
-      itemsPerPage: 3,
-      totalItems: Math.ceil(this.props.users.length / 3),
-    };
-  }
+  state = {
+    currentPage: 1,
+    itemsPerPage: 3,
+    totalItems: this.props.users.length,
+  };
 
   goPrev = () => {
     if (this.state.currentPage > 1) {
@@ -29,24 +26,23 @@ class UsersList extends React.Component {
   };
 
   render() {
+    const { currentPage, totalItems, itemsPerPage } = this.state;
     return (
       <div>
         <Pagination
-          currentPage={this.state.currentPage}
+          currentPage={currentPage}
           goPrev={this.goPrev}
           goNext={this.goNext}
-          totalItems={this.state.totalItems}
+          totalItems={totalItems}
+          itemsPerPage={itemsPerPage}
         />
         <ul>
           {this.props.users
             .map(user => <User key={user.id} {...user} />)
             .filter(
-              (user, index) =>
-                index > (this.state.currentPage - 1) * this.state.itemsPerPage - 1 &&
-                index <=
-                  (this.state.currentPage - 1) * this.state.itemsPerPage -
-                    1 +
-                    this.state.itemsPerPage,
+              (_, index) =>
+                index > (currentPage - 1) * itemsPerPage - 1 &&
+                index <= (currentPage - 1) * itemsPerPage - 1 + itemsPerPage,
             )}
         </ul>
       </div>
