@@ -14,17 +14,19 @@ class UsersList extends React.Component {
   };
 
   goPrev = () => {
-    if (this.state.currentPage > 1) {
+    const { currentPage } = this.state;
+    if (currentPage > 1) {
       this.setState({
-        currentPage: this.state.currentPage - 1,
+        currentPage: currentPage - 1,
       });
     }
   };
 
   goNext = () => {
-    if (this.state.currentPage < this.totalItems) {
+    const { currentPage } = this.state;
+    if (currentPage < this.totalItems) {
       this.setState({
-        currentPage: this.state.currentPage + 1,
+        currentPage: currentPage + 1,
       });
     }
   };
